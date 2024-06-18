@@ -5,6 +5,11 @@ import SignUp from "./pages/SignUp";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
+import axios from "axios";
+
+
+axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.withCredentials = true;
 
 export default function App() {
   return <BrowserRouter>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export default function SignUp() {
@@ -15,17 +16,8 @@ export default function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('/api/auth/signup', 
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      }
-    );
-    const data = await res.json();
-    console.log(data);
+    const res = await axios.post('/api/auth/signup', formData)
+    console.log(res.data)
   }
   console.log(formData);
   return (
